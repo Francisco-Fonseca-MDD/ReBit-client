@@ -1,55 +1,106 @@
-# Project Title
+# Project Title - ReBit
 
 ## Overview
 
-What is your app? Brief description in a couple of sentences.
+The app's purpose is to provide reviews for video games based on some form of quantatative measure. It will allow users to interact with reviews, altering their ranking and post new ones.
 
 ### Problem
 
-Why is your app needed? Background information around any pain points or other reasons.
+Currently, the review systems that exist on many platforms is simple and does not take into account the content of the review, this makes it more difficult for users to get an informed opinion on what games are good, and which are not. The other problem that exists is that there is no way to sort by number of positive reviews relative to the number of total players. Generally speaking, the larger the percentage of a game's playerbase that leave a review, the better the game is (this is speculation, which this project will give information on)
 
 ### User Profile
 
-Who will use your app? How will they use it? Any special considerations that your app must take into account.
+The intended user is someone that plays a variety of games, always looking for a new one to try out. The age range for the intended user is irrelevant since people from all ages play video games and may be interested in reading reviews for them
 
 ### Features
 
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
+Log-in
+
+Sentiment Analysis on all reviews to rank them with objective language.
+
+Reviews made on the web page will be stored on a database, along with preassigned categories that the user can assign a number out of 10.
+
+filter for explicit language
 
 ## Implementation
 
 ### Tech Stack
 
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
+Sentiment analysis (node library)
+
+MySQL for database
 
 ### APIs
 
-List any external sources of data that will be used in your app.
+Steam API by steam, and Steam api by third party (to get around rate limits by steam)
 
 ### Sitemap
 
-List the pages of your app with brief descriptions. You can show this visually, or write it out.
+- Home page - List of games with overall ranking, and sorting by category, ranking, date of last update and date of publishing
+- Game page - Overall information for game and reviews. These are split in two, reviews from steam database and reviews made on this app.
+- Log-in page
 
 ### Mockups
 
-Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches.
+![mockups](./Proposal/preliminary_mockups.png)
 
 ### Data
 
-Describe your data and the relationships between them. You can show this visually using diagrams, or write it out. 
+- Username and password: User's Id will be linked to their reviews, their password and their username.
+- Game - each game will have it's reviews linked to them, aswell as key game information such as active playerbase, date of latest update, date of publish, images related to the game, categories the game falls under, ranking in each category.
 
 ### Endpoints
 
-List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
+- /
+  - GET list of games and overview information
+- /:id
+  - GET details about a specific game using it's id.
+- /:id/reviews
+  - GET all reviews for a game
+  - POST a new review about a game
+  - PUT edit a review that a user has written in the past
+  - DELETE a review that a user has written in the past
 
 ### Auth
 
-Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented.
+#### Authentication:
+
+- Single factor authentication - only password is required
+
+#### Authorization:
+
+- A user can only post a review if they are logged in.
+- A user can only edit or delete their own reviews.
+- A user does NOT have to be logged in to view any of the pages
 
 ## Roadmap
 
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
+1. Sentiment analysis with mock data
+2. Database setup
+   - setup tables
+   - setup migrations and seed
+3. Backend setup
+   - use knex with the appropriate endpoints to handle data in the correct format
+4. Setup ReactApp
+   - Routes
+5. Home page
+   - Header component
+   - Featured Game card component
+   - Filter/Sorting functionality
+   - Results game card component
+6. Game Page
+   - review card component
+7. Auth
+   - backend auth
+   - frontend auth
+8. Login/Signup page
+9. Profile page
 
 ## Nice-to-haves
 
-Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing.
+- AI compiles all reviews and generates one with the average sentiment of all users.
+- Multiple uses of sentiment analysis, one for ranking the reviews in terms of objective language, and one for ranking them in terms of relatability, and humour.
+- Fancy "gamer-like" animations
+- deployment
+- Seperate out steam reviews from this app's reviews for seperate tracking.
+- Search functionality
