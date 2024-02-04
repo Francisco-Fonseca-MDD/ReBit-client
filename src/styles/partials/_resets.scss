@@ -1,0 +1,22 @@
+@use "./variables" as *;
+@use "./fonts";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  font-family: Prompt;
+  color: $primary-text-dark;
+  font-size: 400;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $primary-background;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,73 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+.header {
+  padding: 1rem 2.25rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: $secondary-background;
+  &__logo-container {
+    max-width: 1024px;
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    align-items: center;
+    background-color: $primary-background;
+    border-radius: 5px;
+    padding: 1rem 2.25rem;
+  }
+  &__logo {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 5px;
+  }
+  &__title {
+    @include text-style(3rem, 0.625rem, 700);
+    color: $secondary-text-dark;
+    margin: 0;
+  }
+  &__navbar {
+    max-width: 1024px;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: $primary-background;
+    border-radius: 5px;
+  }
+  &__nav-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2.25rem;
+    list-style: none;
+    padding: 0 2.25rem;
+    margin: 0;
+    height: 5rem;
+    width: 100%;
+  }
+  &__nav-item {
+    @include text-style(1.25rem, 0.625rem, 500);
+  }
+  &__search {
+    border: none;
+    outline: 2px solid $secondary-background;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-weight: 500;
+    background-color: $primary-background;
+    &:focus {
+      outline: 2px solid $primary-interactive;
+    }
+  }
+  &__navlink {
+    color: $secondary-text-dark;
+    border-radius: 5px;
+    border: 2px solid $secondary-text-dark;
+    padding: 0.5rem;
+    &:hover {
+      background-color: $secondary-background;
+      color: $primary-background;
+    }
+  }
+}
