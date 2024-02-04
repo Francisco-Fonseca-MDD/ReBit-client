@@ -33,7 +33,9 @@ function Header() {
             </Link>
           </li>
           <li className="header__nav-item">
-            <Link className="header__navlink">About</Link>
+            <Link to="/about" className="header__navlink">
+              About
+            </Link>
           </li>
           <li className="header__nav-item">
             <input
@@ -46,7 +48,9 @@ function Header() {
             />
           </li>
           <li className="header__nav-item">
-            <Link className="header__navlink">Log in</Link>
+            <Link to="/login" className="header__navlink">
+              Log in
+            </Link>
           </li>
         </ul>
       </nav>

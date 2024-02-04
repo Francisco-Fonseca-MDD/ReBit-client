@@ -15,6 +15,21 @@ class api {
     const tags = await axios.get(endpoint);
     setStateFun(tags.data);
   };
+  fetchOneGame = async (setStateFun, gameId) => {
+    const endpoint = this.apiUrl + ":" + this.apiPort + "/games/" + gameId;
+    const game = await axios.get(endpoint);
+    setStateFun(game.data);
+  };
+  updateLikes = async (interaction) => {
+    const endpoint =
+      this.apiUrl + ":" + this.apiPort + "/reviews/" + interaction.reviewId;
+    await axios.put(endpoint, interaction);
+  };
+  postReview = async (body) => {
+    const endpoint =
+      this.apiUrl + ":" + this.apiPort + "/reviews/" + body.reviewId;
+    await axios.post(endpoint, body);
+  };
 }
 
 const backendApi = new api(

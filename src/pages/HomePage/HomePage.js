@@ -1,6 +1,6 @@
 import "./HomePage.scss";
 import backendApi from "../../utils";
-import LargeGameCard from "./LargeGameCard/LargeGameCard";
+import LargeGameCard from "../../components/LargeGameCard/LargeGameCard";
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -113,36 +113,34 @@ function HomePage() {
         </div>
       </section>
 
-      {displayGames && (
-        <section className="smallCards">
-          {displayGames.map((game) => {
-            return (
-              <article
-                className="smallCards__article"
-                key={game.id}
-                onClick={() => {
-                  navigate("/games/" + game.id);
-                }}
+      <section className="smallCards">
+        {(displayGames ? displayGames : gamesList).map((game) => {
+          return (
+            <article
+              className="smallCards__article"
+              key={game.id}
+              onClick={() => {
+                navigate("/games/" + game.id);
+              }}
+            >
+              <img src={game.header_url} className="smallCards__image" />
+              <div className="smallCards__details">
+                <p className="smallCards__text">{game.short_description}</p>
+                <p className="smallCards__text">{game.about}</p>
+              </div>
+              <h2
+                className={
+                  game.score <= 0
+                    ? "smallCards__score smallCards__score--negative"
+                    : "smallCards__score"
+                }
               >
-                <img src={game.header_url} className="smallCards__image" />
-                <div className="smallCards__details">
-                  <p className="smallCards__text">{game.short_description}</p>
-                  <p className="smallCards__text">{game.about}</p>
-                </div>
-                <h2
-                  className={
-                    game.score <= 0
-                      ? "smallCards__score smallCards__score--negative"
-                      : "smallCards__score"
-                  }
-                >
-                  {game.score}
-                </h2>
-              </article>
-            );
-          })}
-        </section>
-      )}
+                {game.score}
+              </h2>
+            </article>
+          );
+        })}
+      </section>
     </main>
   );
 }

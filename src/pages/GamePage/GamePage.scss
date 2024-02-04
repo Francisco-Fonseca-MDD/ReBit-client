@@ -1,0 +1,37 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.review-form {
+  margin: 3rem auto;
+  padding: 2.25rem;
+  background-color: $secondary-background;
+  display: flex;
+  border-radius: 20px;
+  max-width: 952px;
+  justify-content: space-between;
+  align-items: flex-start;
+  &__label {
+    width: 80%;
+    color: $primary-background;
+    align-self: flex-end;
+  }
+  &__textarea {
+    background-color: $primary-background;
+    padding: 1rem;
+    width: 100%;
+    align-self: flex-end;
+  }
+  &__button {
+    background-color: $primary-background;
+    color: $secondary-text-dark;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 5rem;
+    height: 3rem;
+    align-self: flex-end;
+    &:hover {
+      background-color: $primary-interactive;
+    }
+  }
+}
