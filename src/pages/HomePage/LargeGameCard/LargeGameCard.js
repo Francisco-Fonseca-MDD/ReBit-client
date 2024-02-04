@@ -14,8 +14,11 @@ function LargeGameCard({ game }) {
       <div className="LargeGameCard__container">
         <h1 className="LargeGameCard__title">{game.game}</h1>
         <h2
-          className="LargeGameCard__score"
-          style={{ color: `${game.score <= 0 ? "red" : "green"}` }}
+          className={
+            game.score <= 0
+              ? "LargeGameCard__score LargeGameCard__score--negative"
+              : "LargeGameCard__score"
+          }
         >
           {game.score}
         </h2>

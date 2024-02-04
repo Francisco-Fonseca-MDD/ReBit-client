@@ -7,7 +7,8 @@
 }
 
 .sorting {
-  max-width: 1024px;
+  max-width: 952px;
+  border-radius: 20px;
   padding: 1.5rem;
   margin: auto;
   display: flex;
@@ -40,6 +41,51 @@
     padding: 0.5rem 2rem;
     &:focus {
       outline: 2px solid $primary-interactive;
+    }
+  }
+}
+
+.smallCards {
+  max-width: 1024px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-inline: 2.25rem;
+  margin-top: 3rem;
+  &__article {
+    width: 100%;
+    padding: 1.25rem 2.25rem;
+    display: flex;
+    border: 2px solid $secondary-text-dark;
+    border-radius: 5px;
+    position: relative;
+  }
+  &__image {
+    width: 10rem;
+    object-fit: contain;
+    border-radius: 5px;
+  }
+  &__details {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 0 1.5rem;
+  }
+  &__score {
+    position: absolute;
+    right: 2.25rem;
+    border: 2px solid $secondary-text-dark;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    margin: 0;
+    line-height: 4.75rem;
+    text-align: center;
+    vertical-align: middle;
+    color: green;
+    &--negative {
+      color: red;
     }
   }
 }
