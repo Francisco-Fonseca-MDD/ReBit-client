@@ -19,7 +19,7 @@
     - create a .env file following the .env.sample file example
     - npm start to launch (REQUIRES SERVER TO BE RUNNING)
 
-    for server side make sure to create a database and:
+    for server side make sure to create a .env file, a database and:
     npm run migrate
     npm run seed
 
