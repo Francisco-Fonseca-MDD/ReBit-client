@@ -24,12 +24,14 @@ function HomePage() {
     },
   };
   const [gamesList, setGamesList] = useState(null);
+  const [tags, setTags] = useState(null);
 
   useEffect(() => {
     backendApi.fetchAllGames(setGamesList);
+    backendApi.fetchTags(setTags);
   }, []);
 
-  if (!gamesList) return <h1>Loading...</h1>;
+  if (!gamesList || !tags) return <h1>Loading...</h1>;
   return (
     <main>
       <Carousel responsive={responsive} className="carousel">
@@ -39,7 +41,29 @@ function HomePage() {
       </Carousel>
 
       <section className="sorting">
-        <div>sorting and filters here</div>
+        <div className="sorting__container">
+          <label htmlFor="genreInput" className="sorting__label">
+            <p className="sorting__label-text">Genre</p>
+            <select id="genreInput" className="sorting__select">
+              <option value="">Filter by genre</option>
+              {tags.map((tag) => {
+                return (
+                  <option key={tag.id} value={tag.tag}>
+                    {tag.tag}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+          <label htmlFor="ratingInput" className="sorting__label">
+            <p className="sorting__label-text">Rating</p>
+            <select id="ratingInput" className="sorting__select">
+              <option value="">Sort by Rating</option>
+              <option value={1}>High to Low</option>
+              <option value={-1}>Low to High</option>
+            </select>
+          </label>
+        </div>
       </section>
       <section className="smallCards">
         <article>card</article>

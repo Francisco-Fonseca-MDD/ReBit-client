@@ -10,6 +10,11 @@ class api {
     const games = await axios.get(endpoint);
     setStateFun(games.data);
   };
+  fetchTags = async (setStateFun) => {
+    const endpoint = this.apiUrl + ":" + this.apiPort + "/games/tags";
+    const tags = await axios.get(endpoint);
+    setStateFun(tags.data);
+  };
 }
 
 const backendApi = new api(

@@ -5,3 +5,41 @@
   max-width: 1024px;
   margin: auto;
 }
+
+.sorting {
+  max-width: 1024px;
+  padding: 1.5rem;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.25rem;
+  background-color: $secondary-background;
+  &__container {
+    display: flex;
+    gap: 5rem;
+  }
+  &__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid $primary-background;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+
+    &-text {
+      margin: 0;
+      color: $primary-interactive;
+    }
+  }
+  &__select {
+    background-color: $primary-background;
+    color: $primary-text-dark;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 2rem;
+    &:focus {
+      outline: 2px solid $primary-interactive;
+    }
+  }
+}
