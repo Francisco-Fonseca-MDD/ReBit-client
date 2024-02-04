@@ -1,0 +1,59 @@
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.LargeGameCard {
+  margin-block: 3rem;
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: $secondary-background;
+  height: 20rem;
+  opacity: 0.9;
+  background-position: center;
+  padding: 1.25rem;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__title {
+    width: 60%;
+    height: 5rem;
+    background-color: $primary-background;
+    opacity: 1;
+    color: $primary-text-dark;
+    border-radius: 15px;
+    padding: 1.25rem;
+    @include text-style(1.5rem, 2.25rem, 700);
+    vertical-align: middle;
+    border: 2px solid $secondary-text-dark;
+  }
+  &__score {
+    width: 5rem;
+    height: 5rem;
+    background-color: $primary-background;
+    opacity: 1;
+    color: $secondary-text-dark;
+    border-radius: 50%;
+    padding: 0.5rem;
+    border: 2px solid $secondary-text-dark;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 3.75rem;
+  }
+  &__details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__text {
+    height: 3rem;
+    background-color: $primary-background;
+    opacity: 1;
+    color: $primary-text-dark;
+    border-radius: 15px;
+    padding: 1.25rem;
+    @include text-style(1rem, 0.875rem, 400);
+    vertical-align: middle;
+    border: 2px solid $secondary-text-dark;
+  }
+}
